@@ -39,6 +39,13 @@ def main():
             unique_id = int(args.arguments[0])
             new_description = " ".join(args.arguments[1:])
             update_task(unique_id, new_description)
+    elif args.action == "update":
+        if len(args.arguments) >= 2:  # Ensure there are enough arguments
+            task_id = int(args.arguments[0])  # Convert the first argument to an integer
+            new_description = " ".join(args.arguments[1:])  # Join the rest as the new description
+            update_task(task_id, new_description)
+        else:
+            print("Error: Task ID and new description are required to update a task.")
     else:
         print("Unknown action")
 

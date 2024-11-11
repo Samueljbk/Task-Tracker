@@ -64,5 +64,17 @@ def mark_task(unique_id, new_status):
     # If no task with given ID is found
     print(f"Error: No task found with ID {unique_id}.")
 
-def update_task():
-    None
+def update_task(task_id, new_description):
+    tasks = load_tasks()  # Load all tasks
+
+    # Find the task with the matching ID
+    for task in tasks:
+        if task["id"] == task_id:
+            task["description"] = new_description  # Update the description
+            task["updatedAt"] = datetime.now().isoformat()  # Update the timestamp
+            save_tasks(tasks)  # Save the updated tasks
+            print(f"Task {task_id} updated successfully.")
+            return
+
+    # If no task with the given ID is found
+    print(f"Error: No task found with ID {task_id}.")
