@@ -51,4 +51,16 @@ def list_tasks(status=None):
         print(f"[{task['id']}] {task['description']} - {task['status']} (Created: {task['createdAt']})")
 
 def mark_task(unique_id, new_status):
-    None
+    tasks = load_tasks()
+
+    # Find the task with the matching ID
+    for task in tasks:
+        if task["id"] == unique_id:
+            task["status"] = new_status  # Update the status
+            task["updatedAt"] = datetime.now().isoformat()  # Update the timestamp
+            save_tasks(tasks)  # Save the updated tasks
+            print(f"Task {unique_id} marked as {new_status}.")
+            return
+    # If no task with given ID is found
+    print(f"Error: No task found with ID {unique_id}.")
+
