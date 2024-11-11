@@ -31,3 +31,7 @@ def add_task(description):
     tasks.append(new_task)
     save_tasks(tasks)
     print(f"Output: Task added successfully (ID: {unique_id})")
+
+def list_tasks():
+    [] #todo
+

@@ -1,5 +1,5 @@
 import argparse
-from task_manager import add_task
+from task_manager import add_task, list_tasks
 
 def main():
     parser = argparse.ArgumentParser(description="Task Tracker CLI")
@@ -16,6 +16,12 @@ def main():
     if args.action == "add":
         description = " ".join(args.arguments)
         add_task(description)
+    elif args.action == "list":
+        if args.arguments:
+            status = args.arguments[0]
+            list_tasks(status)
+        else:
+            list_tasks()
     else:
         print("Unknown action")
 
