@@ -22,6 +22,18 @@ def main():
             list_tasks(status)
         else:
             list_tasks()
+    elif args.action == "mark-in-progress":
+        if args.arguments:
+            unique_id = int(args.arugments[0])
+            mark_task(unique_id, "in-progress")
+        else:
+            print("Error: Task ID is required to mark a task as in-progress.")
+    elif args.action == "mark-done":
+        if args.arguments:
+            unique_id = int(args.arguments[0])
+            mark_task(unique_id, "done")
+        else:
+            print("Error: Task ID is required to mark a task as done.")
     else:
         print("Unknown action")
 
