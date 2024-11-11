@@ -32,6 +32,20 @@ def add_task(description):
     save_tasks(tasks)
     print(f"Output: Task added successfully (ID: {unique_id})")
 
-def list_tasks():
-    [] #todo
+def list_tasks(status=None):
+    tasks = load_tasks()  # Load all tasks
+    
+    if status:
+        # Filter tasks by status
+        filtered_tasks = [task for task in tasks if task["status"] == status]
+    else:
+        # If no status is provided, show all tasks
+        filtered_tasks = tasks
+        
+    if not filtered_tasks:
+        print("No tasks found.")
+        return
 
+    # Display tasks
+    for task in filtered_tasks:
+        print(f"[{task['id']}] {task['description']} - {task['status']} (Created: {task['createdAt']})")
