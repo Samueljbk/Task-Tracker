@@ -64,3 +64,5 @@ def mark_task(unique_id, new_status):
     # If no task with given ID is found
     print(f"Error: No task found with ID {unique_id}.")
 
+def update_task():
+    None

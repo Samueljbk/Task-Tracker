@@ -1,5 +1,5 @@
 import argparse
-from task_manager import add_task, list_tasks, mark_task
+from task_manager import add_task, list_tasks, mark_task, update_task
 
 def main():
     parser = argparse.ArgumentParser(description="Task Tracker CLI")
@@ -34,6 +34,11 @@ def main():
             mark_task(unique_id, "done")
         else:
             print("Error: Task ID is required to mark a task as done.")
+    elif args.action == "update":
+        if len(args.arguments) >= 2:
+            unique_id = int(args.arguments[0])
+            new_description = " ".join(args.arguments[1:])
+            update_task(unique_id, new_description)
     else:
         print("Unknown action")
 
