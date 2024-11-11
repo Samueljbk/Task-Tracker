@@ -41,7 +41,7 @@ def list_tasks(status=None):
     else:
         # If no status is provided, show all tasks
         filtered_tasks = tasks
-        
+
     if not filtered_tasks:
         print("No tasks found.")
         return
@@ -49,3 +49,6 @@ def list_tasks(status=None):
     # Display tasks
     for task in filtered_tasks:
         print(f"[{task['id']}] {task['description']} - {task['status']} (Created: {task['createdAt']})")
+
+def mark_task(unique_id, new_status):
+    None
