@@ -1,5 +1,5 @@
 import argparse
-from task_manager import add_task, list_tasks, mark_task, update_task
+from task_manager import add_task, list_tasks, mark_task, update_task, delete_task
 
 def main():
     parser = argparse.ArgumentParser(description="Task Tracker CLI")
