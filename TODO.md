@@ -5,10 +5,10 @@
 - [x] Implement `list_tasks()` function
 - [x] Add functionality to update a task
 - [x] Implement task deletion
-- [ ] Add feature to mark tasks as "in-progress" or "done"
+- [x] Add feature to mark tasks as "in-progress" or "done"
 
 ## Refactoring and Optimization
-- [ ] Refactor code for better readability
+- [] Refactor code for better readability
 - [ ] Optimize JSON file handling for performance
 
 ## Future Enhancements
