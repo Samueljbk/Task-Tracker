@@ -34,9 +34,14 @@ def add_task(description):
 
 def list_tasks(status=None):
     tasks = load_tasks()  # Load all tasks
-    
+
     if status:
-        # Filter tasks by status
+        # Ensure the status is valid
+        if status not in ["todo", "in-progress", "done"]:
+            print(f"Error: Invalid status '{status}'. Valid statuses are 'todo', 'in-progress', and 'done'.")
+            return
+
+        # Filter tasks by the provided status
         filtered_tasks = [task for task in tasks if task["status"] == status]
     else:
         # If no status is provided, show all tasks
@@ -46,9 +51,10 @@ def list_tasks(status=None):
         print("No tasks found.")
         return
 
-    # Display tasks
+    # Display tasks in a user-friendly format
     for task in filtered_tasks:
         print(f"[{task['id']}] {task['description']} - {task['status']} (Created: {task['createdAt']})")
+
 
 def mark_task(unique_id, new_status):
     tasks = load_tasks()
