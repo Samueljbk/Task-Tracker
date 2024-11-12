@@ -4,7 +4,7 @@
 - [x] Add `add_task()` function
 - [x] Implement `list_tasks()` function
 - [x] Add functionality to update a task
-- [ ] Implement task deletion
+- [x] Implement task deletion
 - [ ] Add feature to mark tasks as "in-progress" or "done"
 
 ## Refactoring and Optimization
