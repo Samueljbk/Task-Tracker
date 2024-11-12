@@ -3,7 +3,7 @@
 ## Features to Implement
 - [x] Add `add_task()` function
 - [x] Implement `list_tasks()` function
-- [ ] Add functionality to update a task
+- [x] Add functionality to update a task
 - [ ] Implement task deletion
 - [ ] Add feature to mark tasks as "in-progress" or "done"
 
