@@ -46,6 +46,12 @@ def main():
             update_task(task_id, new_description)
         else:
             print("Error: Task ID and new description are required to update a task.")
+    elif args.action == "delete":
+        if args.arguments:
+            task_id = int(args.arguments[0])  # Convert the first argument to an integer
+            delete_task(task_id)
+        else:
+            print("Error: Task ID is required to delete a task.")
     else:
         print("Unknown action")
 
