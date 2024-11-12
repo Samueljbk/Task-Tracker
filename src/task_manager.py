@@ -78,3 +78,16 @@ def update_task(task_id, new_description):
 
     # If no task with the given ID is found
     print(f"Error: No task found with ID {task_id}.")
+
+def delete_task(task_id):
+    tasks = load_tasks()  # Load all tasks
+
+    # Filter out the task with the matching ID
+    new_tasks = [task for task in tasks if task["id"] != task_id]
+
+    if len(new_tasks) == len(tasks):
+        print(f"Error: No task found with ID {task_id}.")
+        return
+
+    save_tasks(new_tasks)  # Save the updated list of tasks
+    print(f"Task {task_id} deleted successfully.")
