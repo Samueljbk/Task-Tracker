@@ -1,36 +1,127 @@
 # Task Tracker CLI
 
-A straightforward command-line interface (CLI) tool for efficiently tracking and managing your tasks. Built with Python, this lightweight task manager allows you to add, update, delete, and list tasks, while keeping track of their status: **todo**, **in-progress**, or **done**. All task data is saved in a simple `tasks.json` file, ensuring your tasks are persistently stored.
+A straightforward command-line interface (CLI) tool for efficiently tracking and managing your tasks. Built with Python, this lightweight task manager allows you to add, update, delete, and list tasks, while keeping track of their status: **todo**, **in-progress**, or **done**.
 
-## About This Project
+## Features
+- ✨ Add, update, and delete tasks
+- 📋 List all tasks or filter by status
+- 🔄 Track task status (todo, in-progress, done)
+- 📅 Automatic timestamp tracking
+- 💾 Persistent storage using JSON
+- 🔍 Search functionality
+- ⚡ Fast and lightweight
 
-This project was built as a learning exercise and a portfolio piece to demonstrate my understanding of:
-- Creating a command-line interface (CLI) application using **Python**.
-- Handling user input and command-line arguments with **argparse**.
-- Working with **JSON** for data persistence.
-- Using Python's built-in modules for **file handling** and **data management**.
-- Implementing features such as adding, updating, deleting, and filtering tasks efficiently.
-- Following **best practices** for code organization, error handling, and user-friendly output.
+## Installation
 
-The main goal was to build a functional and user-friendly CLI tool while gaining hands-on experience with core Python programming concepts and developing robust software engineering practices.
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/task-tracker-cli.git
+cd task-tracker-cli
+```
 
-## Key Features
-- **Add Tasks**: Quickly add new tasks with a description.
-- **Update Tasks**: Modify existing task descriptions.
-- **Delete Tasks**: Remove tasks you no longer need.
-- **Mark Tasks**: Easily mark tasks as "in-progress" or "done".
-- **List Tasks**: View all tasks or filter by status (todo, in-progress, done).
-- **Search Tasks**: Find tasks by keywords in their descriptions.
+2. Install dependencies:
+```bash
+pip install -e .
+```
 
-## Example Usage
-- **Add a Task**:
-  ```bash
-  python src/task_tracker.py add "Finish the project"
+## Usage
 
-- **List all Tasks**:
-  ```bash
-  python src/task_tracker.py list "Finish the project"
+### Adding Tasks
+```bash
+task-manager add "Complete project documentation"
+```
 
-- **Mark a Task as Done**:
-  ```bash
-  python src/task_tracker.py mark-done 1
+### Listing Tasks
+```bash
+# List all tasks
+task-manager list
+
+# List tasks by status
+task-manager list todo
+task-manager list in-progress
+task-manager list done
+```
+
+### Updating Tasks
+```bash
+# Update task description (replace 1 with your task ID)
+task-manager update 1 "Updated task description"
+
+# Mark task as in-progress
+task-manager mark-in-progress 1
+
+# Mark task as done
+task-manager mark-done 1
+```
+
+### Deleting Tasks
+```bash
+task-manager delete 1
+```
+
+## Project Structure
+```
+task-manager/
+├── src/
+│   ├── __init__.py
+│   ├── task_manager.py    # Core functionality
+│   └── task_tracker.py    # CLI interface
+├── tests/
+│   ├── __init__.py
+│   └── test_task_manager.py
+├── data/
+│   └── tasks.json
+├── README.md
+├── requirements.txt
+└── setup.py
+```
+
+## Technical Details
+
+### Built With
+- Python 3.6+
+- argparse - For CLI argument parsing
+- json - For data persistence
+- datetime - For timestamp tracking
+- unittest - For testing
+
+### Data Storage
+Tasks are stored in a JSON file with the following structure:
+```json
+{
+    "id": 1,
+    "description": "Task description",
+    "status": "todo",
+    "createdAt": "2024-11-19T10:00:00",
+    "updatedAt": "2024-11-19T10:00:00"
+}
+```
+
+## Development
+
+### Running Tests
+```bash
+pytest tests/
+```
+
+### Contributing
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Future Enhancements
+- [ ] Due dates for tasks
+- [ ] Priority levels
+- [ ] Task categories/tags
+- [ ] Export tasks to different formats (CSV, HTML)
+- [ ] Database integration
+- [ ] Task completion statistics
+
+## License
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## Acknowledgments
+- Inspired by various task management tools
+- Built as a learning project to demonstrate Python CLI development
